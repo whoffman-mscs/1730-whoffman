@@ -101,7 +101,7 @@ namespace whoffman2h1
             try
             {
                 input = input.Trim();
-                input = input.Remove(1, 2);
+                input = input.Remove(1, 1);
                 input = input.Insert(1, "rit");
                 return input;
             }
@@ -122,7 +122,7 @@ namespace whoffman2h1
         }
         public static string StringCalc04(string input)
         {
-            input.Trim();
+            input = input.Trim();
             input = input.PadLeft(10, '*');
             return input;
         }
@@ -161,21 +161,25 @@ namespace whoffman2h1
         }
         public static string StringCalc08(string input)
         {
-            string result = "Invalid input";
-            try
-            {
-                
-                int firstComma = input.LastIndexOf(", ");
-                
+
+
+            string result = "Invalid input"; 
+                int firstComma = input.IndexOf(", ");
+            if (firstComma == -1)
+                return result;
+            else
                 input = input.Substring(firstComma + 2);
                 return input;
-            }
-            catch { }
-            return result;
+            
         }
         public static string StringCalc09(string input)
         {
+            string result = "Invalid input";
+            input = input.Trim();
             int lastSpace = input.LastIndexOf(" ");
+            if (lastSpace == -1)
+                return result;
+            else
             input = input.Substring(lastSpace + 1);
             return input;
         }
@@ -183,7 +187,9 @@ namespace whoffman2h1
         {
             StringBuilder sb = new StringBuilder(100);
             sb.Append(input1);
+            sb.Append(", ");
             sb.Append(input2);
+            sb.Append(", ");
             sb.Append(input3);
             return sb.ToString();
         }
