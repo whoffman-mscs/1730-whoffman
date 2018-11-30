@@ -100,7 +100,7 @@ namespace whoffman3a1
                 int end = Int32.Parse(strEnd);
                 int increment = Int32.Parse(strIncrement);
                 if (increment <= 0) throw new Exception();
-                int i = 0;
+                int i = start;
                 while (i < end)
                 {
                     result += i;
@@ -124,7 +124,7 @@ namespace whoffman3a1
                 int end = Int32.Parse(strEnd);
                 int increment = Int32.Parse(strIncrement);
                 if (increment <= 0) throw new Exception();
-                int i = 0;
+                int i = start;
                 do
                 {
                     result += i;
@@ -150,7 +150,7 @@ namespace whoffman3a1
                 int increment = Int32.Parse(strIncrement);
                 if (increment <= 0) throw new Exception();
                 
-                for (int i = 0; i < end; i += increment)
+                for (int i = start; i < end; i += increment)
                 {
                     result += i;
                     result += " ";
@@ -166,6 +166,7 @@ namespace whoffman3a1
         {
             string result = "";
             int startIndex = 0;
+            int sum = 0;
             try
             {
                 int count = Int32.Parse(strCount);
@@ -175,10 +176,11 @@ namespace whoffman3a1
                     int endIndex = strNumbers.IndexOf(' ', startIndex);
                     string strNumber = strNumbers.Substring(startIndex, endIndex - startIndex);
                     int number = Int32.Parse(strNumber);
-                    result += number.ToString();
+                    sum += number; 
                     startIndex = endIndex + 1;
                     i++;
                 }
+                result = sum.ToString();
             }
             catch { result = "Invalid input"; }
             return result;
@@ -188,6 +190,7 @@ namespace whoffman3a1
         {
             string result = "";
             int startIndex = 0;
+            int sum = 0;
             try
             {
                 int count = Int32.Parse(strCount);
@@ -197,11 +200,12 @@ namespace whoffman3a1
                     int endIndex = strNumbers.IndexOf(' ', startIndex);
                     string strNumber = strNumbers.Substring(startIndex, endIndex - startIndex);
                     int number = Int32.Parse(strNumber);
-                    result += number.ToString();
+                    sum += number;
                     startIndex = endIndex + 1;
                     i++;
                 }
                 while (i < count);
+                result = sum.ToString();
             }
             catch { result = "Invalid input"; }
             return result;
@@ -211,6 +215,7 @@ namespace whoffman3a1
         {
             string result = "";
             int startIndex = 0;
+            int sum = 0;
             try
             {
                 int count = Int32.Parse(strCount);
@@ -219,9 +224,10 @@ namespace whoffman3a1
                     int endIndex = strNumbers.IndexOf(' ', startIndex);
                     string strNumber = strNumbers.Substring(startIndex, endIndex - startIndex);
                     int number = Int32.Parse(strNumber);
-                    result += number.ToString();
+                    sum += number;
                     startIndex = endIndex + 1;
                 }
+                result = sum.ToString();
             }
             catch { result = "Invalid input"; }
             return result;
