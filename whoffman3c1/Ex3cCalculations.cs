@@ -41,22 +41,45 @@ namespace whoffman3c1
         {
             double sum = 0.0;
             int length = numbers.GetLength(0);
-            
-                for (int i = 0; i < number; i++)
-                    sum += numbers[i];
-            return sum;
-            else
-                return 0.0;
+
+            for (int i = 0; i < number; i++)
+                sum += numbers[i];
+                return sum;
             
         }
         public static double Calc5(double[] numbers)
         {
-            return 0.0;
+            int length = numbers.GetLength(0);
+            double sum = 0.0;
+            double average = 0.0;
+            if (length > 0)
+            {
+                for (int i = 0; i < length; i++)
+                {
+                    sum += numbers[i];
+                }
+
+                average = sum / length;
+
+                return average;
+            }
+            else
+                return -1;
         }
 
         public static double[] Calc6(double[] numbers)
         {
-            return new double[10];
+            int length = numbers.GetLength(0);
+            List<double> aboveAvgList = new List<double>();
+            if (length > 0)
+            {
+                double avg = Calc5(numbers);
+                foreach(int average in aboveAvgList)
+                {
+                   
+                }
+            }
+            return aboveAvgList.ToArray();
         }
     }
 }
