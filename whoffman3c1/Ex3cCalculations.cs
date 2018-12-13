@@ -19,7 +19,7 @@ namespace whoffman3c1
 
         public static string Calc1(string search)
         {
-            search.Trim();
+            search = search.Trim();
             search = search.ToUpper();
             string[] days = { "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" };
             string[] hours = { "Closed", "10am - 6pm", "10am - 6pm", "10am - 6pm", "10am - 9pm", "10am - 6pm", "8am - 4pm" };
@@ -74,9 +74,13 @@ namespace whoffman3c1
             if (length > 0)
             {
                 double avg = Calc5(numbers);
-                foreach(int average in aboveAvgList)
+                double average = avg / length;
+                double aboveAverage = 0;
+                foreach(int total in aboveAvgList)
                 {
-                   
+                    if (avg > average)
+                        aboveAverage++;
+                        
                 }
             }
             return aboveAvgList.ToArray();

@@ -50,8 +50,8 @@ namespace whoffman3c1
             double[] numbers3 = { 11.1, 22.2, 23.3, 34.4, 9.0 };
             try
             {
-                //int count = Int32.Parse(inputTextBox3a.Text);
-                //resultTextBox3.Text = Ex3cCalculations.Calc3(numbers3, count).ToString();
+                int count = Int32.Parse(inputTextBox3a.Text);
+                resultTextBox3.Text = Ex3cCalculations.Calc3(numbers3, count).ToString();
             }
             catch
             {
@@ -70,16 +70,22 @@ namespace whoffman3c1
 
             //#5
             double[] numbers5 = new double[inputListBox5a.Items.Count];
+            for (int i = 0; i < inputListBox5a.Items.Count; i++)
+            {
+                numbers5[i] = Double.Parse(inputListBox5a.Items[i].ToString());
+                sum += numbers5[i];
+            }
             double average = Ex3cCalculations.Calc5(numbers5);
             resultTextBox5.Text = average.ToString("n1");
 
             //#6
 
             double[] numbers6 = new double[inputListBox6a.Items.Count];
-            for (int i = 0; i < inputListBox6a.Items.Count; i++)
+            
+            double aboveAverage = 0.0;
+            foreach (int total in numbers6)
             {
-                numbers6[i] = Double.Parse(inputListBox6a.Items[i].ToString());
-                sum += numbers6[i];
+                aboveAverage += inputListBox6a.Items.Count;
             }
             double[] aboveAvg = Ex3cCalculations.Calc6(numbers6);
             resultListBox6.Items.Add(aboveAvg[0]);
